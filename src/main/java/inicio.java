@@ -1,13 +1,43 @@
 import java.sql.Connection;
+import java.util.Scanner;
 
 public class inicio {
     public static void main(String[] args) {
-        Conexion cn = new Conexion();
 
-        try (Connection cnx = cn.get_Connection()){
+        Scanner leer = new Scanner(System.in);
 
-        }catch (Exception e){
-            System.out.println(e);
-        }
+        int op = 0;
+
+        do {
+            System.out.println("------------------------------");
+            System.out.println("Aplicasion de Alumnos");
+            System.out.println("1.- Crear Alumno");
+            System.out.println("2.- Actualizar Alumno");
+            System.out.println("3.- Eliminar Alumno");
+            System.out.println("4.- Listar Alumnos");
+            System.out.println("5.- Salir");
+            op = leer.nextInt();
+
+            switch (op){
+                case 1:
+                    serviceAlumno.crearAlumno();
+                    break;
+                case 2:
+                    serviceAlumno.actualizarAlumno();
+                    break;
+                case 3:
+                    serviceAlumno.eliminarAlumno();
+                    break;
+                case 4:
+                    serviceAlumno.consultarAlumno();
+                    break;
+                default:
+                    System.out.println("Ingrese una opcion valida");
+                    break;
+            }
+
+
+        }while (op != 5);
+
     }
 }

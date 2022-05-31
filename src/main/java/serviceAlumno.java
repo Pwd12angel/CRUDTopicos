@@ -15,9 +15,10 @@ public class serviceAlumno {
         System.out.println("Ingresa el numero de control del alumno");
         int nc = leer.nextInt();
 
+        //mandamos a llamar desde la clase alumno
         alumno registro = new alumno();
 
-        //Utilizamos los metodos set
+        //Utilizamos los metodos set para meter los datos
         registro.setNombre(nombre);
         registro.setEdad(edad);
         registro.setNumerode_c(nc);
@@ -27,12 +28,42 @@ public class serviceAlumno {
         Operaciones.crearAlumno(registro);
     }
     public static void eliminarAlumno(){
+        Scanner leer = new Scanner(System.in);
 
+        System.out.println("Indica el id ");
+        int id = leer.nextInt();
+
+        Operaciones.eliminarAlumno(id);
     }
     public static void actualizarAlumno(){
+        Scanner leer = new Scanner(System.in);
+
+        System.out.println("Escribe el nombre");
+        String n = leer.next();
+
+        System.out.println("Escribe la edad");
+        int e = leer.nextInt();
+
+        System.out.println("Escribe el numero de control");
+        int nc = leer.nextInt();
+
+        System.out.println("Indica el id ");
+        int id = leer.nextInt();
+
+        alumno act = new alumno();
+
+        act.setId(id);
+        act.setNombre(n);
+        act.setEdad(e);
+        act.setNumerode_c(nc);
+
+        Operaciones.actualizarAlumno(act);
+
+
+
 
     }
     public static void consultarAlumno(){
-
+        Operaciones.consultarAlumno();
     }
 }
